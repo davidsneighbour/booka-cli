@@ -37,6 +37,7 @@
     "require": {
         "php": "^7.4",
         "consolidation/robo": "^1.4.12",
+        "curl/curl": "^2.3",
         "league/flysystem": "^1.0.69",
         "phpstan/extension-installer": "^1.0.4",
         "phpstan/phpstan": "^0.12.25",

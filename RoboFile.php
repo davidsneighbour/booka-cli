@@ -25,6 +25,8 @@
 
 declare(strict_types=1);
 
+namespace Booka\Cli;
+
 use Booka\Cli\Traits\{Build,
     Clean,
     Database,
