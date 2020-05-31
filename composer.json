@@ -2,7 +2,7 @@
     "name": "davidsneighbour/booka-cli",
     "description": "CLI workforce for BooKa",
     "type": "vcs",
-    "url": "https://github.com/davidsneighbour/booka-cli",
+    "homepage": "https://github.com/davidsneighbour/booka-cli",
     "authors": [
         {
             "name": "Patrick Kollitsch",
