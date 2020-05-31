@@ -1,7 +1,7 @@
 {
     "name": "davidsneighbour/booka-cli",
     "description": "CLI workforce for BooKa",
-    "type": "vcs",
+    "type": "library",
     "homepage": "https://github.com/davidsneighbour/booka-cli",
     "authors": [
         {
