@@ -2,6 +2,7 @@
     "name": "davidsneighbour/booka-cli",
     "description": "CLI workforce for BooKa",
     "type": "library",
+    "license": "proprietary",
     "homepage": "https://github.com/davidsneighbour/booka-cli",
     "authors": [
         {
@@ -11,20 +12,11 @@
             "role": "Developer"
         }
     ],
-    "config": {
-        "notify-on-install": false,
-        "optimize-autoloader": true,
-        "classmap-authoritative": true,
-        "sort-packages": true
-    },
     "autoload": {
         "psr-4": {
             "Booka\\Cli\\": "src/"
-        },
-        "classmap": []
+        }
     },
-    "prefer-stable": true,
-    "minimum-stability": "dev",
     "scripts": {
         "autoload": "composer dump-autoload --optimize --classmap-authoritative --apcu",
         "phan": "PHAN_DISABLE_XDEBUG_WARN=1 && phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S",
