@@ -92,14 +92,9 @@ class RoboFile extends Tasks
 
     /**
      * RoboFile constructor.
-     *
-     * @throws Exception
      */
     public function __construct()
     {
-
-        // set root directory
-        static::$rootdir = dirname(__FILE__);
 
         // grabbing configuration from booka.yml file in the config directory
         if (!is_array(static::$setup)) {
