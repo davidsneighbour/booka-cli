@@ -30,6 +30,7 @@ namespace Booka\Cli\Traits;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Plugin\ListPaths;
+use LogicException;
 use Robo\Contract\VerbosityThresholdInterface;
 use Safe\Exceptions\FilesystemException;
 
@@ -47,6 +48,7 @@ trait Release
      * @param array $opts
      *
      * @option string $what update target (major, minor or patch)
+     * @psalm-suppress PossiblyUnusedMethod
      */
     public function release(array $opts = ['what|w' => 'patch']): void
     {
@@ -122,7 +124,7 @@ trait Release
     /**
      * @return array
      */
-    protected function getVersionArray()
+    protected function getVersionArray(): array
     {
         try {
             $sVersion = file_get_contents(static::$rootdir . '/.version');
@@ -199,7 +201,7 @@ trait Release
             ->run();
     }
 
-    private function deployApiDocumentation()
+    private function deployApiDocumentation(): void
     {
         $this->taskExec('./bin/deploy-api-doc.sh')
             ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
@@ -253,6 +255,7 @@ trait Release
      * Create versioning tags in PHPDoc for new classes/methods/files
      *
      * @see https://www.phpliveregex.com/ for playground to check regex
+     * @psalm-suppress UnusedMethod
      */
     private function versioning(string $what = 'patch'): void
     {
@@ -272,9 +275,13 @@ trait Release
         $sSinceReplace = ' * @since      ';
 
         // retrieve config paths
-        $adapter = new Local($rootpath);
-        $filesystem = new Filesystem($adapter);
-        $filesystem->addPlugin(new ListPaths());
+        try {
+            $adapter = new Local($rootpath);
+            $filesystem = new Filesystem($adapter);
+            $filesystem->addPlugin(new ListPaths());
+        } catch (LogicException $eException){
+            die('Flysystem setup not working');
+        }
 
         // retrieve version number
         try {

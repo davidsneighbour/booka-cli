@@ -33,7 +33,10 @@ namespace Booka\Cli\Traits;
 trait Wordpress
 {
 
-    public function wpCompile()
+    /**
+     *
+     */
+    public function wpCompile(): void
     {
         $wpPluginFile = 'public/dnb_booka_calendar.zip';
         $this->_exec('rm ' . $wpPluginFile);

@@ -78,34 +78,49 @@ trait QualityInsurance
         'https://phar.phpunit.de/phploc-5.0.0.phar' => './bin/phploc',
     ];
 
-    public function qiBaselines()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiBaselines(): void
     {
         $this->qiPhanBaseline();
         $this->qiPsalmBaseline();
         $this->qiPhpstanBaseline();
     }
 
-    public function qiPhanBaseline()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiPhanBaseline(): void
     {
         $command = static::$phan . ' -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim ';
         $command .= '--progress-bar -b -x -t -z -S --save-baseline .phan/baseline.php';
         $this->_exec($command);
     }
 
-    public function qiPsalmBaseline()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiPsalmBaseline(): void
     {
         $command = static::$psalm . ' --set-baseline=psalm-baseline.xml';
         $this->_exec($command);
     }
 
-    public function qiPhpstanBaseline()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiPhpstanBaseline(): void
     {
         $command = static::$phpstan . ' analyse -l 8 -c phpstan.neon --error-format baselineNeon src ';
         $command .= '> phpstan-baseline.neon';
         $this->_exec($command);
     }
 
-    public function qiPhan()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiPhan(): void
     {
         $command = 'PHAN_DISABLE_XDEBUG_WARN=1 && ' . static::$phan . ' -k .phan/config.php ';
         $command .= '--load-baseline .phan/baseline.php -C --color-scheme=vim ';
@@ -113,26 +128,38 @@ trait QualityInsurance
         $this->_exec($command);
     }
 
-    public function qiPhanHtml()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiPhanHtml(): void
     {
         $command = static::$phan . ' -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim';
         $command .= ' --progress-bar -b -x -t -z -S -m=html -o=phan.html';
         $this->_exec($command);
     }
 
-    public function qiPhpstan()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiPhpstan(): void
     {
         $command = static::$phpstan . ' analyse -c phpstan.neon src -l max --ansi';
         $this->_exec($command);
     }
 
-    public function qiPsalm()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiPsalm(): void
     {
         $command = static::$psalm;
         $this->_exec($command);
     }
 
-    public function qiSetup()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiSetup(): void
     {
         set_time_limit(0);
         foreach (static::$phars as $url => $target) {
@@ -147,7 +174,10 @@ trait QualityInsurance
         }
     }
 
-    public function qiPhpdoccheck()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function qiPhpdoccheck(): void
     {
         $command = sprintf("%s src", static::$phpdoccheck);
         $this->_exec($command);

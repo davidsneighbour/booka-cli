@@ -44,7 +44,9 @@ use Curl\Curl;
 use Grasmash\YamlExpander\Expander;
 use Robo\{ResultData, Tasks};
 use Robo\Contract\VerbosityThresholdInterface;
+use RuntimeException;
 use Safe\Exceptions\FilesystemException;
+use Safe\Exceptions\JsonException;
 
 use function Safe\file_get_contents;
 use function Safe\json_encode;
@@ -53,6 +55,8 @@ use function Safe\json_encode;
  * Class RoboFile
  *
  * RoboFile stub to be used with all task classes. Loads setup and adds re-used methods.
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
  */
 class RoboFile extends Tasks
 {
@@ -81,43 +85,32 @@ class RoboFile extends Tasks
     protected static $setup;
 
     /**
-     * @var string
-     */
-    protected static $version;
-
-    /**
      * @var string API directory of Booka
      */
     protected static $apidir = 'src/Booka';
 
     /**
      * RoboFile constructor.
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
     public function __construct()
     {
-
         // grabbing configuration from booka.yml file in the config directory
         if (!is_array(static::$setup)) {
-            $setup = file_get_contents(static::$rootdir . '/config/booka.yml');
-            static::$setup = Expander::parse($setup);
-        }
-
-        // get version number
-        try {
-            static::$version = file_get_contents('.version');
-            static::$version = trim(static::$version);
-        } catch (FilesystemException $eException) {
-            static::$version = 'unknown';
+            try {
+                $setup = file_get_contents(static::$rootdir . '/config/booka.yml');
+                static::$setup = Expander::parse($setup);
+            } catch (FilesystemException $eException){}
         }
     }
 
     public function taskNotifySentry(): void
     {
-
         $this->stopOnFail(true);
 
         // check if sentry is installed
-        $result = $this->checkSentry();
+        $this->checkSentry();
 
         // current booka version
         $sVersion = 'VERSION=`cat .version` && ';
@@ -152,11 +145,10 @@ class RoboFile extends Tasks
     }
 
     /**
-     * @return \Robo\ResultData
+     * @return ResultData|null
      */
     protected function checkSentry()
     {
-
         $filename = static::$rootdir . '/node_modules/.bin/sentry-cli';
 
         if (!file_exists($filename)) {
@@ -169,13 +161,11 @@ class RoboFile extends Tasks
     /**
      * Notify sentry.io of release deploy to a certain deployment stage
      *
-     * @throws \Robo\Exception\TaskException
-     *
      * @param array $remote
+     *
      */
     protected function sentryDeployNotification(array $remote): void
     {
-
         // @todo check if sentry-cli is set up properly and warn if not
         // @todo add duration of staging
 
@@ -198,49 +188,55 @@ class RoboFile extends Tasks
     }
 
     /**
-     * @throws \Safe\Exceptions\JsonException
-     *
      * @param array  $payload
      * @param string $message
      * @param array  $slack = [
      *                      'channel' => 'channelcode',
      *                      'hook'    => 'hook',
      *                      ]
+     *
      */
     protected function notifySlack(string $message, array $slack, array $payload = []): void
     {
-
-        $aPayload = [
-            'username'   => $payload['username'] ?? 'BooKa',
-            'icon_emoji' => $payload['icon_emoji'] ?? ':male-construction-worker:',
-            'channel'    => $slack['channel'],
-            'text'       => $message,
-        ];
+        try {
+            $aPayload = json_encode(
+                [
+                    'username' => $payload['username'] ?? 'BooKa',
+                    'icon_emoji' => $payload['icon_emoji'] ?? ':male-construction-worker:',
+                    'channel' => $slack['channel'],
+                    'text' => $message,
+                ]
+            );
+        } catch (JsonException $eException) {
+            $aPayload = '';
+        }
 
         $aPayloadPrepared = [
-            "payload" => json_encode($aPayload),
+            "payload" => $aPayload,
         ];
 
-        $curl = new Curl();
-        $curl->post($slack['hook'], $aPayloadPrepared);
+        try {
+            $curl = new Curl();
+            $curl->post($slack['hook'], $aPayloadPrepared);
+        } catch (RuntimeException $eException) {
+        }
     }
 
     /**
-     * @throws \Robo\Exception\TaskException
-     *
      * @param array  $extra
      * @param string $message
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
-    protected function sentrySendEvent(string $message, array $extra = [])
+    protected function sentrySendEvent(string $message, array $extra = []): void
     {
-
         $sEnvironventVars = 'export SENTRY_DSN=' . static::$setup['sentry']['dsn'] . ' && ';
         $sMessage = './node_modules/.bin/sentry-cli send-event -m "' . $message . '"';
 
         $sExtra = '';
         if (count($extra) > 0) {
             foreach ($extra as $key => $value) {
-                $sExtra .= ' -e ' . $key . ':' . $value . ' ';
+                $sExtra .= ' -e ' . strval($key) . ':' . $value . ' ';
             }
         }
 

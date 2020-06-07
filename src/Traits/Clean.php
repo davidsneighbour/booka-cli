@@ -30,6 +30,7 @@ namespace Booka\Cli\Traits;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Plugin\ListPaths;
+use Symfony\Component\Mime\Exception\LogicException;
 
 /**
  * Trait Clean
@@ -46,7 +47,7 @@ trait Clean
     {
         $this->cleanTemps();
 
-        if (is_array($opts) && isset($opts['full'])) {
+        if (isset($opts['full'])) {
             foreach (
                 [
                     static::$rootdir . '/public/javascripts/node_modules',
@@ -61,7 +62,7 @@ trait Clean
         }
     }
 
-    private function cleanTemps()
+    private function cleanTemps(): void
     {
         $this->cleanCache();
         foreach (
@@ -82,9 +83,13 @@ trait Clean
     private function cleanCache(): void
     {
         // setting up file system
-        $adapter = new Local('/');
-        $filesystem = new Filesystem($adapter);
-        $filesystem->addPlugin(new ListPaths());
+        try {
+            $adapter = new Local('/');
+            $filesystem = new Filesystem($adapter);
+            $filesystem->addPlugin(new ListPaths());
+        } catch (\LogicException $eException){
+            die('path not found');
+        }
 
         $dirs = $filesystem->listPaths(static::$rootdir . '/cache/');
 
@@ -124,8 +129,10 @@ trait Clean
 
     /**
      * cleanup temporary directories and build files
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
-    public function cleanup()
+    public function cleanup(): void
     {
         $this->cleanTemps();
     }

@@ -35,7 +35,10 @@ namespace Booka\Cli\Traits;
 trait Development
 {
 
-    public function devPrepare()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function devPrepare(): void
     {
         // remove logfiles
         // remove documentation

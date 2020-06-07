@@ -51,6 +51,8 @@ trait Build
      * Create transactional email templates
      *
      * @see https://github.com/mjmlio/mjml
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
     public function mailtemplates(): void
     {
@@ -87,6 +89,8 @@ trait Build
      * @see https://webdesign.tutsplus.com/series/postcss-deep-dive--cms-889
      * @see https://www.postcss.parts/
      * @see https://github.com/jdrgomes/awesome-postcss
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
     public function build(): void
     {
@@ -118,7 +122,10 @@ trait Build
         );
     }
 
-    public function buildCli()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function buildCli(): void
     {
         $this->taskExecStack()
             ->stopOnFail()

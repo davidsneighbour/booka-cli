@@ -48,9 +48,9 @@ otherwise Psalm will throw an error.
 
 -->
 <psalm
-        name="Psalm configuration for Booka"
+        name="Psalm configuration for Booka CLI"
 
-        errorLevel="3"
+        errorLevel="7"
 
         totallyTyped="false"
         strictBinaryOperands="true"
@@ -78,5 +78,8 @@ otherwise Psalm will throw an error.
     <issueHandlers>
         <!-- @todo find a positive way to define these and remove suppression -->
         <PossiblyUndefinedStringArrayOffset errorLevel="suppress"/>
+        <DeprecatedMethod errorLevel="suppress"/>
+        <PossiblyNullArrayAccess errorLevel="suppress"/>
+        <PossiblyNullArgument errorLevel="suppress"/>
     </issueHandlers>
 </psalm>

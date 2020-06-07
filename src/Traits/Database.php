@@ -40,6 +40,8 @@ trait Database
 
     /**
      * Synchronize remote databases to local installation
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
     public function database(): void
     {
@@ -61,6 +63,9 @@ trait Database
         );
 
         if ($install === 'all') {
+            /**
+             * @psalm-suppress PossiblyNullIterator
+             */
             foreach (static::$setup['stages'] as $key => $item) {
                 if (isset($item['live'])) {
                     $this->io()->comment('Retrieving ' . $key);
@@ -74,6 +79,9 @@ trait Database
         } else {
             // retrieve setup
             $remote = static::$setup['stages'][$install]['live'];
+            /**
+             * @psalm-suppress PossiblyNullArrayOffset
+             */
             $local = static::$setup['local'][$remote['local']];
             $this->executeDBBackup($remote, $local);
         }

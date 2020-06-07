@@ -39,8 +39,10 @@ trait Stage
 
     /**
      * Update stages to most current versions
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
-    public function stage()
+    public function stage(): void
     {
         // ask for stage
         $stage = $this->requestLocations();

@@ -36,35 +36,38 @@ trait Testing
     /**
      * Testing unit tests and run coverage
      */
-    public function test()
+    public function test(): void
     {
         $this->testUnit();
         $this->testAcceptance();
         $this->testBrowser();
     }
 
-    public function testUnit()
+    public function testUnit(): void
     {
         $this
             ->taskExec('./vendor/bin/codecept run unit --coverage --coverage-xml --coverage-html')
             ->run();
     }
 
-    public function testAcceptance()
+    public function testAcceptance(): void
     {
         $this
             ->taskExec('./vendor/bin/codecept run acceptance --fail-fast')
             ->run();
     }
 
-    public function testBrowser()
+    public function testBrowser(): void
     {
         $this
             ->taskExec('./vendor/bin/codecept run browser --fail-fast')
             ->run();
     }
 
-    public function testApi()
+    /**
+     * @psalm-suppress PossiblyUnusedMethod
+     */
+    public function testApi(): void
     {
         $this
             ->taskExec('./vendor/bin/codecept run api --fail-fast')

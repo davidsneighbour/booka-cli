@@ -42,8 +42,10 @@ trait Env
      *
      * this function switches the local installation between various databases.
      * Uses `config/booka.yml` > local keys as setup for possible values.
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
-    public function env()
+    public function env(): void
     {
         $this->io()->title('Set current local environment:');
         // load available environments

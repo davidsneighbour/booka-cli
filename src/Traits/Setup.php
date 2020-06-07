@@ -42,6 +42,8 @@ trait Setup
      * updates)
      *
      * @return void
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
     public function sentrysetup(): void
     {

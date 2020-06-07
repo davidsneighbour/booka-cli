@@ -37,6 +37,8 @@ trait Documentation
 
     /**
      * analyse code and create API documentation
+     *
+     * @psalm-suppress PossiblyUnusedMethod
      */
     public function documentation(): void
     {
