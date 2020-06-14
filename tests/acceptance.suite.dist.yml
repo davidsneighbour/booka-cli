@@ -1,0 +1,31 @@
+# The _Acceptance Suite_ is for tests that need an actual browser running (so
+# things like visibility to user and form fields outside of forms can be
+# checked).
+#
+# Use sparsely, it's slow. The _Browser Suite_ should be used in general
+#
+# @see https://codeception.com/docs/modules/PhpBrowser
+# @see https://codeception.com/docs/03-AcceptanceTests
+
+actor: AcceptanceTester
+modules:
+  enabled:
+    - \Helper\Acceptance
+    - WebDriver:
+        url: 'https://booka/'
+        window_size: false # disabled in ChromeDriver, see below start-maximized
+        port: 9515
+        browser: chrome
+        capabilities:
+            goog:chromeOptions:
+                args: ['allow-insecure-localhost','ignore-certificate-errors','start-maximized']
+bootstrap: _bootstrap.php
+extensions:
+  enabled:
+    - Codeception\Extension\RunProcess:
+        0: node_modules/chromedriver/bin/chromedriver --url-base=/wd/hub
+        sleep: 2 # wait 5 seconds for processes to boot
+    - Codeception\Extension\DotReporter
+    - Codeception\Extension\Recorder:
+        delete_orphaned: true
+        delete_successful: true

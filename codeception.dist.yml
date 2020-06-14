@@ -1,0 +1,84 @@
+paths:
+  tests: tests
+  output: tests/_output
+  data: tests/_data
+  support: tests/_support
+  envs: tests/_envs
+
+actor_suffix: Tester
+
+extensions:
+  enabled:
+    - Codeception\Extension\RunFailed
+    - Codeception\Extension\Recorder:
+        delete_successful: true
+    - Codeception\Extension\DotReporter
+    - Codeception\Extension\Logger
+
+settings:
+
+  # enable/disable syntax of test files before loading
+  # for php < 7 exec('php -l') is used
+  # not run, done via phpstorm
+  lint: false
+
+  # randomize test order
+  shuffle: true
+
+  # colorize output.
+  colors: true
+
+  # Generate XML JUnit report using strict schema
+  # Avoid putting additional report fields like steps or scenario names tot it
+  # Required for XML reports on Jenkins CI
+  strict_xml: false
+
+  # Tests (especially functional) can take a lot of memory
+  # We set a high limit for them by default.
+  memory_limit: 512M
+
+  # This value controls whether PHPUnit attempts to backup global variables
+  # See https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.backupGlobals
+  backup_globals: true
+
+  # PHPUnit can be strict about tests that do not test anything
+  # See https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.useless-tests
+  report_useless_tests: true
+
+  # PHPUnit can be strict about output during tests.
+  # See https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.output-during-test-execution
+  disallow_test_output: false
+
+  # PHPUnit can be strict about tests that manipulate global state.
+  # See https://phpunit.de/manual/current/en/risky-tests.html#risky-tests.global-state-manipulation
+  be_strict_about_changes_to_global_state: false
+
+  # Log the incomplete and skipped tests into junit report
+  # See https://phpunit.de/manual/current/en/appendixes.configuration.html
+  # Section logging > junit
+  log_incomplete_skipped: false
+
+modules:
+  config:
+    Db:
+      dsn: 'mysql:host=localhost;dbname=booka_hdtours'
+      user: 'user'
+      password: 'pass'
+      #dump: 'tests/_data/testing.sql'
+      # run populator before all tests
+      populate: true
+      # run populator before each test
+      cleanup: false
+
+coverage:
+  enabled: true
+  low_limit: 25
+  high_limit: 75
+  show_only_summary: true
+  show_uncovered: false
+  include:
+    - src/*
+  exclude:
+    - src/Booka/Crud13.php
+    - src/Booka/Object13.php
+    - src/Booka/Skeleton.php

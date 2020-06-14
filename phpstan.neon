@@ -15,7 +15,6 @@ parameters:
         - %currentWorkingDirectory%/src
         - %currentWorkingDirectory%/vendor/consolidation
     autoload_files:
-        - %currentWorkingDirectory%/src/autoloader.php
         - %currentWorkingDirectory%/vendor/autoload.php
 #    bootstrap: %currentWorkingDirectory%/tests/phpstan-bootstrap.php
     excludes_analyse:

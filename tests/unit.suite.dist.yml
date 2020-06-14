@@ -1,0 +1,11 @@
+# The _Unit Suite_ runs unit tests. 'Nuff said.
+#
+# @see https://codeception.com/docs/05-UnitTests
+
+actor: UnitTester
+bootstrap: _bootstrap.php
+modules:
+  enabled:
+  - Asserts
+  - Db
+  - \Helper\Unit
