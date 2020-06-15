@@ -93,7 +93,7 @@ trait Release
         //$this->versioning();
 
         $this->buildChangelog();
-        $this->wpCompile();
+        //$this->wpCompile();
         $this->deployApiDocumentation();
 
         // update submodules
