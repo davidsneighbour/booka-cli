@@ -15,6 +15,14 @@
       "web": "https://davids-neighbour.com"
     }
   ],
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/.cz_config.js"
+    }
+  },
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -27,14 +35,6 @@
   "homepage": "https://github.com/davidsneighbour/booka-cli#readme",
   "dependencies": {
     "standard-version": "^8.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    },
-    "cz-customizable": {
-      "config": "config/.cz_config.js"
-    }
   },
   "scripts": {
     "css": "node-sass -q --include-path public/javascripts/node_modules --output-style compressed --precision 6 assets/scss/default.scss -o public/theme/assets/css/ ",
@@ -154,5 +154,10 @@
         "type": "json"
       }
     ]
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.2.0",
+    "cz-customizable": "^6.2.0",
+    "cz-customizable-ghooks": "^1.5.0"
   }
 }
