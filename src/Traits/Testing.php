@@ -39,7 +39,6 @@ trait Testing
     public function test(): void
     {
         $this->testUnit();
-        $this->testAcceptance();
         $this->testBrowser();
     }
 
@@ -47,13 +46,6 @@ trait Testing
     {
         $this
             ->taskExec('./vendor/bin/codecept run unit --coverage --coverage-xml --coverage-html')
-            ->run();
-    }
-
-    public function testAcceptance(): void
-    {
-        $this
-            ->taskExec('./vendor/bin/codecept run acceptance --fail-fast')
             ->run();
     }
 
