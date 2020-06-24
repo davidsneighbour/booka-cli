@@ -45,5 +45,5 @@
     "psalm/phar": "^3.11.5",
     "codeception/codeception": "^4.1"
   },
-  "version": "1.0.7"
+  "version": "1.0.8"
 }
