@@ -1,7 +1,7 @@
 {
   "name": "davidsneighbour/booka-cli",
   "description": "CLI workforce for BooKa",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "type": "library",
   "authors": [
     {
