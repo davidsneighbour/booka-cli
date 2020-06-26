@@ -44,6 +44,6 @@
     "phan/phan": "3.0.0",
     "phpstan/phpstan-deprecation-rules": "0.12.4",
     "psalm/phar": "3.11.5",
-    "codeception/codeception": "4.1"
+    "codeception/codeception": "4.1.6"
   }
 }
