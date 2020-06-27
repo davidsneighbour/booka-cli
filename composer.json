@@ -43,7 +43,7 @@
   "require-dev": {
     "phan/phan": "3.0.3",
     "phpstan/phpstan-deprecation-rules": "0.12.4",
-    "psalm/phar": "3.11.5",
+    "psalm/phar": "3.12.1",
     "codeception/codeception": "4.1.6"
   }
 }
