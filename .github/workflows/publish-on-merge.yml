@@ -1,0 +1,31 @@
+name: Publish version after merged pull request
+
+on:
+  pull_request:
+    types: closed
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          ref: refs/heads/master
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: npm install
+        run: npm install
+      - name: version and publish
+        run: |
+          git config user.name $GITHUB_ACTOR
+          git config user.email gh-actions-${GITHUB_ACTOR}@github.com
+          npm run release
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
