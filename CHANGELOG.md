@@ -1,4 +1,6 @@
 
+### [1.0.12](https://github.com/davidsneighbour/booka-cli/compare/v1.0.11...v1.0.12) (2020-06-30)
+
 ### [1.0.11](https://github.com/davidsneighbour/booka-cli/compare/v1.0.10...v1.0.11) (2020-06-26)
 
 ### [1.0.10](https://github.com/davidsneighbour/booka-cli/compare/v1.0.9...v1.0.10) (2020-06-26)
