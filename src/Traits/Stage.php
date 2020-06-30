@@ -84,7 +84,7 @@ trait Stage
 
         $remoteHandler
             ->exec('rm -rf public/api5/cache/*')
-            ->exec('/usr/local/php74/bin/php ~/.php/composer/composer install')
+            ->exec('/usr/local/php74/bin/php -d memory_limit=-1 ~/.php/composer/composer install')
             ->exec('npm install')
             ->exec('yarn install')
             ->exec('echo "' . $remote['servername'] . '" > .server')
