@@ -134,7 +134,7 @@
       "precommit": "",
       "postcommit": "",
       "pretag": "",
-      "posttag": "git push --follow-tags origin master"
+      "posttag": ""
     },
     "bumpFiles": [
       {
