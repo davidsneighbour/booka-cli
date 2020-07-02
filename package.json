@@ -44,9 +44,9 @@
     "postcss2": "postcss public/theme/assets/css/*.css -r",
     "nightwatch": "nightwatch -c tests/nightwatch.conf.js",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "release": "standard-version --release-as patch -t",
-    "release-next": "standard-version -t",
-    "release-major": "standard-version --release-as major -t",
+    "release": "standard-version --release-as patch -a",
+    "release-next": "standard-version -a",
+    "release-major": "standard-version --release-as major -a",
     "test": "nightwatch"
   },
   "browserslist": [
@@ -91,50 +91,11 @@
     }
   },
   "standard-version": {
-    "release": "standard-version --release-as patch --sign --commit-all -t",
-    "release-next": "standard-version --sign --commit-all -t",
-    "release-major": "standard-version --release-as major --sign --commit-all -t",
-    "header": "",
-    "types": [
-      {
-        "value": "feat",
-        "section": "Feature:"
-      },
-      {
-        "value": "fix",
-        "section": "Bugfix:"
-      },
-      {
-        "value": "theme",
-        "section": "Theme:"
-      },
-      {
-        "value": "refactor",
-        "hidden": true
-      },
-      {
-        "value": "test",
-        "section": "Testing:"
-      },
-      {
-        "value": "chore",
-        "hidden": true
-      },
-      {
-        "value": "wip",
-        "hidden": true
-      }
-    ],
     "scripts": {
-      "prerelease": "",
-      "prebump": "",
-      "postbump": "",
-      "prechangelog": "",
-      "postchangelog": "",
-      "precommit": "",
-      "postcommit": "",
-      "pretag": "",
-      "posttag": ""
+      "postcommit": "./bin/create-changelog.sh && git add CHANGELOG.md && git commit --amend --no-edit"
+    },
+    "skip": {
+      "changelog": true
     },
     "bumpFiles": [
       {
