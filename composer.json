@@ -41,7 +41,7 @@
     "curl/curl": "2.3"
   },
   "require-dev": {
-    "phan/phan": "3.0.4",
+    "phan/phan": "3.0.5",
     "phpstan/phpstan-deprecation-rules": "0.12.4",
     "psalm/phar": "3.12.1",
     "codeception/codeception": "4.1.6"
