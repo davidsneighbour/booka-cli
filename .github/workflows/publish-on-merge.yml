@@ -2,7 +2,8 @@ name: Publish version after merged pull request
 
 on:
   pull_request:
-    types: closed
+    types: 
+      - closed
 
 jobs:
   publish:
