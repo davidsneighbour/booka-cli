@@ -10,16 +10,16 @@
  * Moral rights are preserved. Proprietary and confidential software.
  * Written by Patrick Kollitsch <patrick@davids-neighbour.com>
  *
- * PHP Version 7.4
+ * PHP Version 8.1
  *
  * @category   Cli
  * @package    Cli
  * @author     Patrick Kollitsch <patrick@davids-neighbour.com>
  * @copyright  2007-2019 - David's Neighbour Part., Ltd.
  * @license    https://getbooka.app/license.txt proprietary
- * @version    NEW
+ * @version    11.18
  * @link       https://getbooka.app/
- * @since      NEW
+ * @since      11.18
  * @filesource
  */
 
@@ -35,30 +35,33 @@ namespace Booka\Cli\Traits;
 trait Env
 {
 
-    /**
-     * set current environment
-     *
-     * saving a value in `.server` to acknowledge the current running local stage.
-     *
-     * this function switches the local installation between various databases.
-     * Uses `config/booka.yml` > local keys as setup for possible values.
-     *
-     * @psalm-suppress PossiblyUnusedMethod
-     */
-    public function env(): void
-    {
-        $this->io()->title('Set current local environment:');
-        // load available environments
-        $environments = array_keys(static::$setup['local']);
-        // let user choose environment
-        $selection = $this->io()->choice(
-            'Which environment?',
-            $environments,
-            $environments[0]
-        );
-        // save .sever file
-        file_put_contents('.server', $selection);
-        $this->io()->success('Set current environment to: ' . $selection);
-    }
-
+	/**
+	 * set current environment
+	 *
+	 * saving a value in `.server` to acknowledge the current running local stage.
+	 *
+	 * this function switches the local installation between various databases.
+	 * Uses `config/booka.yml` > local keys as setup for possible values.
+	 *
+	 * @psalm-suppress PossiblyUnusedMethod
+	 */
+	public function env(): void
+	{
+		$this->io()->title('Set current local environment:');
+		// load available environments
+		/**
+		 * @psalm-suppress PossiblyNullArgument
+		 * @psalm-suppress PossiblyNullArrayAccess
+		 */
+		$environments = array_keys(static::$setup['local']);
+		// let user choose environment
+		$selection = $this->io()->choice(
+			'Which environment?',
+			$environments,
+			$environments[0]
+		);
+		// save .sever file
+		file_put_contents('.dotfiles/.server', $selection);
+		$this->io()->success('Set current environment to: ' . $selection);
+	}
 }
