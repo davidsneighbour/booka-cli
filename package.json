@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/davidsneighbour/booka-cli#readme",
   "dependencies": {
-    "standard-version": "^8.0.0"
+    "standard-version": "^9.5.0"
   },
   "scripts": {
     "css": "node-sass -q --include-path public/javascripts/node_modules --output-style compressed --precision 6 assets/scss/default.scss -o public/theme/assets/css/ ",
@@ -117,8 +117,8 @@
     ]
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^3.2.0",
-    "cz-customizable": "^6.2.0",
-    "cz-customizable-ghooks": "^1.5.0"
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
+    "cz-customizable-ghooks": "^2.0.0"
   }
 }

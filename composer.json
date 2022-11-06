@@ -29,21 +29,26 @@
     "psalm-baseline": "psalm.phar --set-baseline=psalm-baseline.xml"
   },
   "require": {
-    "php": "^7.4",
-    "consolidation/robo": "2.1.0",
-    "league/flysystem": "1.0.69",
-    "phpstan/extension-installer": "1.0.4",
-    "phpstan/phpstan": "0.12.32",
-    "phpstan/phpstan-phpunit": "0.12.11",
-    "phpstan/phpstan-strict-rules": "0.12.2",
-    "thecodingmachine/phpstan-strict-rules": "0.12.0",
-    "thecodingmachine/safe": "1.1.2",
-    "curl/curl": "2.3"
+    "php": ">=8.0",
+    "consolidation/robo": ">=2.1.0",
+    "league/flysystem": ">=1.0.69",
+    "phpstan/extension-installer": ">=1.0.4",
+    "phpstan/phpstan": ">=0.12.32",
+    "phpstan/phpstan-phpunit": ">=0.12.11",
+    "phpstan/phpstan-strict-rules": ">=0.12.2",
+    "thecodingmachine/phpstan-strict-rules": ">=0.12.0",
+    "thecodingmachine/safe": ">=1.1.2",
+    "curl/curl": ">=2.3"
   },
   "require-dev": {
-    "phan/phan": "3.0.4",
-    "phpstan/phpstan-deprecation-rules": "0.12.4",
-    "psalm/phar": "3.12.1",
-    "codeception/codeception": "4.1.6"
+    "phan/phan": ">=3.0.4",
+    "phpstan/phpstan-deprecation-rules": ">=0.12.4",
+    "psalm/phar": ">=3.12.1",
+    "codeception/codeception": ">=4.1.6"
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
   }
 }
