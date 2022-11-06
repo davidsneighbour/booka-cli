@@ -37,11 +37,7 @@
     "standard-version": "^9.5.0"
   },
   "scripts": {
-    "css": "node-sass -q --include-path public/javascripts/node_modules --output-style compressed --precision 6 assets/scss/default.scss -o public/theme/assets/css/ ",
-    "css2": "node-sass -q --include-path public/javascripts/node_modules --output-style compressed --precision 6 assets/scss/ -o public/theme/assets/css/ ",
     "build-changelog": "./bin/create-changelog.sh > CHANGELOG.md",
-    "postcss": "postcss public/theme/assets/css/default.css -r",
-    "postcss2": "postcss public/theme/assets/css/*.css -r",
     "nightwatch": "nightwatch -c tests/nightwatch.conf.js",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "release": "standard-version --release-as patch -a",
@@ -77,19 +73,6 @@
       "public/theme/assets/**/*.css"
     ]
   },
-  "postcss": {
-    "plugins": {
-      "precss": {},
-      "autoprefixer": {
-        "flexbox": true
-      },
-      "pixrem": {},
-      "cssnano": {
-        "preset": "default"
-      },
-      "stylelint": {}
-    }
-  },
   "standard-version": {
     "scripts": {
       "postcommit": "./bin/create-changelog.sh && git add CHANGELOG.md && git commit --amend --no-edit"
@@ -117,6 +100,7 @@
     ]
   },
   "devDependencies": {
+    "@davidsneighbour/config": "^1.0.41",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^7.0.0",
     "cz-customizable-ghooks": "^2.0.0"
