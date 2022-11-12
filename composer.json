@@ -39,7 +39,6 @@
     "thecodingmachine/safe": ">=1.1.2"
   },
   "require-dev": {
-    "codeception/codeception": ">=4.1.6",
     "phan/phan": ">=3.0.4",
     "phpstan/phpstan-deprecation-rules": ">=0.12.4",
     "psalm/phar": ">=3.12.1"
