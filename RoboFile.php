@@ -1,7 +1,7 @@
 <?php
 
 /**
- * BooKa 13
+ * booka-cli2
  *
  * Copyright (c) 2007-2022 - David's Neighbour Part., Ltd.
  * All rights reserved.
@@ -17,11 +17,10 @@
  * @author       Patrick Kollitsch <patrick@davids-neighbour.com>
  * @copyright    2007-2022 - David's Neighbour Part., Ltd.
  * @license      https://getbooka.app/license.txt proprietary
- * @version      11.12
+ * @version      2.0.0
  * @link         https://getbooka.app/
- * @since        11.12
+ * @since        2.0.0
  * @filesource
- * @noinspection PhpUndefinedClassInspection
  */
 
 declare(strict_types=1);

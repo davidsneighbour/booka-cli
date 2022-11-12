@@ -1,13 +1,9 @@
 {
-  "name": "davidsneighbour/booka-cli",
-  "description": "CLI workforce for BooKa",
-  "version": "1.1.0",
-  "type": "library",
   "authors": [
     {
-      "name": "Patrick Kollitsch",
       "email": "patrick@davids-neighbour.com",
       "homepage": "https://davids-neighbour.com",
+      "name": "Patrick Kollitsch",
       "role": "Developer"
     }
   ],
@@ -16,39 +12,48 @@
       "Booka\\Cli\\": "src/"
     }
   },
-  "prefer-stable": true,
-  "minimum-stability": "dev",
-  "scripts": {
-    "autoload": "composer dump-autoload --optimize --classmap-authoritative --apcu",
-    "phan": "PHAN_DISABLE_XDEBUG_WARN=1 && phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S",
-    "phan-html": "phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S -m=html -o=phan.html",
-    "phan-baseline": "phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S --save-baseline .phan/baseline.php",
-    "phpstan": "phpstan analyse -c phpstan.neon src -l max --ansi",
-    "phpstan-baseline": "phpstan analyse -l 8 -c phpstan.neon --generate-baseline -- src",
-    "psalm": "psalm.phar --show-info=true",
-    "psalm-baseline": "psalm.phar --set-baseline=psalm-baseline.xml"
-  },
-  "require": {
-    "php": ">=8.0",
-    "consolidation/robo": ">=2.1.0",
-    "league/flysystem": ">=1.0.69",
-    "phpstan/extension-installer": ">=1.0.4",
-    "phpstan/phpstan": ">=0.12.32",
-    "phpstan/phpstan-phpunit": ">=0.12.11",
-    "phpstan/phpstan-strict-rules": ">=0.12.2",
-    "thecodingmachine/phpstan-strict-rules": ">=0.12.0",
-    "thecodingmachine/safe": ">=1.1.2",
-    "curl/curl": ">=2.3"
-  },
-  "require-dev": {
-    "phan/phan": ">=3.0.4",
-    "phpstan/phpstan-deprecation-rules": ">=0.12.4",
-    "psalm/phar": ">=3.12.1",
-    "codeception/codeception": ">=4.1.6"
+  "autoload-dev": {
+    "psr-4": {
+      "Booka\\Testing\\Cli\\": "tests/api/"
+    }
   },
   "config": {
     "allow-plugins": {
       "phpstan/extension-installer": true
     }
-  }
+  },
+  "description": "CLI workforce for BooKa",
+  "minimum-stability": "dev",
+  "name": "davidsneighbour/booka-cli",
+  "prefer-stable": true,
+  "require": {
+    "consolidation/robo": ">=2.1.0",
+    "curl/curl": ">=2.3",
+    "league/flysystem": ">=1.0.69",
+    "php": ">=8.0",
+    "phpstan/extension-installer": ">=1.0.4",
+    "phpstan/phpstan": ">=0.12.32",
+    "phpstan/phpstan-phpunit": ">=0.12.11",
+    "phpstan/phpstan-strict-rules": ">=0.12.2",
+    "thecodingmachine/phpstan-strict-rules": ">=0.12.0",
+    "thecodingmachine/safe": ">=1.1.2"
+  },
+  "require-dev": {
+    "codeception/codeception": ">=4.1.6",
+    "phan/phan": ">=3.0.4",
+    "phpstan/phpstan-deprecation-rules": ">=0.12.4",
+    "psalm/phar": ">=3.12.1"
+  },
+  "scripts": {
+    "autoload": "composer dump-autoload --optimize --classmap-authoritative --apcu",
+    "phan": "PHAN_DISABLE_XDEBUG_WARN=1 && phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S",
+    "phan-baseline": "phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S --save-baseline .phan/baseline.php",
+    "phan-html": "phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S -m=html -o=phan.html",
+    "phpstan": "phpstan analyse -c phpstan.neon src -l max --ansi",
+    "phpstan-baseline": "phpstan analyse -l 8 -c phpstan.neon --generate-baseline -- src",
+    "psalm": "psalm.phar --show-info=true",
+    "psalm-baseline": "psalm.phar --set-baseline=psalm-baseline.xml"
+  },
+  "type": "library",
+  "version": "2.0.0"
 }

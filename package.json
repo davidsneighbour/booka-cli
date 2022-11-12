@@ -1,6 +1,6 @@
 {
   "name": "booka-cli",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "CLI app for BooKa",
   "private": true,
   "author": {
@@ -100,7 +100,7 @@
     ]
   },
   "devDependencies": {
-    "@davidsneighbour/config": "^1.0.41",
+    "@davidsneighbour/config": "^1.0.42",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^7.0.0",
     "cz-customizable-ghooks": "^2.0.0"

@@ -1,6 +1,6 @@
 ### General ###
 /tmp
-
+config
 
 # Created by https://www.toptal.com/developers/gitignore/api/codesniffer,composer,dropbox,git,hugo,node,phpcodesniffer,phpstorm,phpstorm+all,phpstorm+iml,phpunit,sublimetext,vuejs
 # Edit at https://www.toptal.com/developers/gitignore?templates=codesniffer,composer,dropbox,git,hugo,node,phpcodesniffer,phpstorm,phpstorm+all,phpstorm+iml,phpunit,sublimetext,vuejs

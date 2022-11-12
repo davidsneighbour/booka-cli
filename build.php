@@ -1,4 +1,6 @@
-<?php /** @noinspection PhpUndefinedMethodInspection */
+<?php
+
+/** @noinspection PhpUndefinedMethodInspection */
 
 /**
  * BooKa 13 CLI
@@ -67,9 +69,7 @@ $filter = function (
 };
 $iterator = new RecursiveIteratorIterator(
     new RecursiveCallbackFilterIterator(
-        new RecursiveDirectoryIterator(
-            __DIR__, RecursiveDirectoryIterator::SKIP_DOTS
-        ),
+        new RecursiveDirectoryIterator(__DIR__, RecursiveDirectoryIterator::SKIP_DOTS),
         $filter
     )
 );
