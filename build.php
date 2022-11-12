@@ -78,5 +78,5 @@ $phar->setSignatureAlgorithm(Phar::SHA1);
 $phar->startBuffering();
 $phar->buildFromIterator($iterator, __DIR__);
 //default executable
-$phar->setStub("#!/usr/bin/php \n" . $phar::createDefaultStub('init.php'));
+$phar->setStub("#!/usr/bin/php \n" . $phar::createDefaultStub('runner.php'));
 $phar->stopBuffering();
