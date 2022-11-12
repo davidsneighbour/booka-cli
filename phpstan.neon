@@ -3,20 +3,12 @@ includes:
     - phpstan-baseline.neon
 parameters:
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
-    # silence array return types
-    #checkMissingIterableValueType: false
     tipsOfTheDay: false
     fileExtensions:
         - php
     level: max
     paths:
         - src
-    autoload_directories:
-        - %currentWorkingDirectory%/src
-        - %currentWorkingDirectory%/vendor/consolidation
-    autoload_files:
-        - %currentWorkingDirectory%/vendor/autoload.php
-#    bootstrap: %currentWorkingDirectory%/tests/phpstan-bootstrap.php
     excludes_analyse:
         - %currentWorkingDirectory%/vendor
         - %currentWorkingDirectory%/src/Booka/Core/Psr4AutoloaderClass.php
@@ -27,8 +19,7 @@ parameters:
         - '#Call to method recordCount\(\) on an unknown class RecordSet#'
         - '#Method Booka\\Core\\Database\:\:getInstance\(\) should return ADODB_mysqli but returns ADODB_mysqli\|the#'
         - '#Access to property \$cacheSecs on an unknown class the#'
-        # issues in Booka\Page\Page with smarty assuming callback is callable ;)
-        - '#Parameter \#3 \$callback of method Smarty\_Internal\_TemplateBase::registerPlugin() expects callback#'
+        - '#Parameter \#3 \$callback of method Smarty\_Internal\_TemplateBase::registerPlugin\(\) expects callback#'
         - '#PHPDoc tag @var contains unknown class callback#'
     reportUnmatchedIgnoredErrors: false
     inferPrivatePropertyTypeFromConstructor: true
@@ -37,9 +28,3 @@ parameters:
             - redirect
     earlyTerminatingFunctionCalls:
         - redirect
-#    exceptionRules:
-#            reportUnusedCatchesOfUncheckedExceptions: false
-#            reportCheckedThrowsInGlobalScope: false
-#            ignoreDescriptiveUncheckedExceptions: false
-#            checkedExceptions:
-#                - RuntimeException

@@ -23,14 +23,11 @@
   "homepage": "https://github.com/davidsneighbour/booka-cli#readme",
   "license": "UNLICENSED",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/davidsneighbour/booka-cli.git"
-  },
+  "repository": "davidsneighbour/booka-cli",
   "scripts": {
-    "clean": "rimraf dist/ vendor/ booka-cli.phar node_modules/",
-    "release": "standard-version --release-as patch -a",
-    "release:major": "standard-version --release-as major -a",
-    "release:minor": "standard-version --release-as minor -a"
+    "clean": "rimraf dist/ tmp/ vendor/ booka-cli.phar node_modules/",
+    "release": "standard-version --release-as patch --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\"",
+    "release:major": "standard-version --release-as major --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\"",
+    "release:minor": "standard-version --release-as minor --sign -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\""
   }
 }

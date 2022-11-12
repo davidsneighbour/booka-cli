@@ -50,12 +50,9 @@ otherwise Psalm will throw an error.
 <psalm
         name="Psalm configuration for Booka CLI"
 
-        errorLevel="7"
+        errorLevel="8"
 
-        totallyTyped="false"
         strictBinaryOperands="true"
-        allowPhpStormGenerics="true"
-        allowCoercionFromStringToClassConst="true"
         allowStringToStandInForClass="true"
         addParamDefaultToDocblockType="true"
         checkForThrowsDocblock="true"

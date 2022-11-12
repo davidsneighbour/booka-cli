@@ -30,7 +30,7 @@
     "consolidation/robo": ">=2.1.0",
     "curl/curl": ">=2.3",
     "league/flysystem": ">=1.0.69",
-    "php": ">=8.0",
+    "php": ">=8.1",
     "phpstan/extension-installer": ">=1.0.4",
     "phpstan/phpstan": ">=0.12.32",
     "phpstan/phpstan-phpunit": ">=0.12.11",

@@ -1,0 +1,274 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method League\\\\Flysystem\\\\Filesystem\\:\\:addPlugin\\(\\)\\.$#"
+			count: 2
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method League\\\\Flysystem\\\\Filesystem\\:\\:listPaths\\(\\)\\.$#"
+			count: 2
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\Archive\\\\Pack\\:\\:addDir\\(\\)\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\Base\\\\ExecStack\\:\\:exec\\(\\)\\.$#"
+			count: 3
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\Base\\\\ExecStack\\:\\:stopOnFail\\(\\)\\.$#"
+			count: 8
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\Base\\\\ParallelExec\\:\\:process\\(\\)\\.$#"
+			count: 5
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\File\\\\Replace\\:\\:from\\(\\)\\.$#"
+			count: 4
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\File\\\\Replace\\:\\:regex\\(\\)\\.$#"
+			count: 2
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\File\\\\Write\\:\\:line\\(\\)\\.$#"
+			count: 2
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\Remote\\\\Rsync\\:\\:toPath\\(\\)\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\Remote\\\\Ssh\\:\\:remoteDir\\(\\)\\.$#"
+			count: 5
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\Testing\\\\Codecept\\:\\:suite\\(\\)\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\Vcs\\\\GitStack\\:\\:dir\\(\\)\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to an undefined method Robo\\\\Collection\\\\CollectionBuilder\\|Robo\\\\Task\\\\Vcs\\\\GitStack\\:\\:stopOnFail\\(\\)\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to deprecated function Safe\\\\array_combine\\(\\)\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: """
+				#^Call to deprecated method io\\(\\) of class Robo\\\\Tasks\\:
+				Use a style injector instead$#
+			"""
+			count: 33
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to method Robo\\\\Task\\\\Testing\\\\Codecept\\:\\:coverageHtml\\(\\) with incorrect case\\: coverageHTML$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to static method getServername\\(\\) on an unknown class Booka\\\\Core\\\\Configuration\\\\Config\\.$#"
+			count: 2
+			path: src/RoboFile.php
+
+		-
+			message: "#^Call to static method getVersion\\(\\) on an unknown class Booka\\\\Core\\\\Configuration\\\\Config\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Empty catch block\\. If you are sure this is meant to be empty, please add a \"// @ignoreException\" comment in the catch block\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^In method \"Booka\\\\Cli\\\\RoboFile\\:\\:notifySlack\", caught \"RuntimeException\" must be rethrown\\. Either catch a more specific exception or add a \"throw\" clause in the \"catch\" block to propagate the exception\\. More info\\: http\\://bit\\.ly/failloud$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Instantiated class League\\\\Flysystem\\\\Adapter\\\\Local not found\\.$#"
+			count: 2
+			path: src/RoboFile.php
+
+		-
+			message: "#^Instantiated class League\\\\Flysystem\\\\Plugin\\\\ListPaths not found\\.$#"
+			count: 2
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:checkSentry\\(\\) should return Robo\\\\ResultData\\|null but return statement is missing\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:clean\\(\\) has parameter \\$opts with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:createMysqlCommand\\(\\) has parameter \\$server with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:devInstallScripts\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:documentation\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:documentationDown\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:emptyDatabase\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:executeCommand\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:executeCommand\\(\\) has parameter \\$remote with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:executeDBBackup\\(\\) has parameter \\$local with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:executeDBBackup\\(\\) has parameter \\$remote with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:getStageLocation\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:getStageLocation\\(\\) has parameter \\$all with no type specified\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:getStageLocation\\(\\) has parameter \\$term with no type specified\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:getVersion\\(\\) has parameter \\$version with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:getVersionArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:increaseVersionArray\\(\\) has parameter \\$version with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:increaseVersionArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:migrateDatabase\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:notifySlack\\(\\) has parameter \\$payload with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:notifySlack\\(\\) has parameter \\$slack with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:release\\(\\) has parameter \\$opts with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:saveVersion\\(\\) has parameter \\$version with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:sentryDeployNotification\\(\\) has parameter \\$remote with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Method Booka\\\\Cli\\\\RoboFile\\:\\:sentrySendEvent\\(\\) has parameter \\$extra with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php
+
+		-
+			message: "#^Offset 'local' might not exist on array\\|null\\.$#"
+			count: 2
+			path: src/RoboFile.php
+
+		-
+			message: "#^Offset 'sentry' might not exist on array\\|null\\.$#"
+			count: 5
+			path: src/RoboFile.php
+
+		-
+			message: "#^Offset 'stages' might not exist on array\\|null\\.$#"
+			count: 9
+			path: src/RoboFile.php
+
+		-
+			message: "#^Parameter \\#1 \\$adapter of class League\\\\Flysystem\\\\Filesystem constructor expects League\\\\Flysystem\\\\FilesystemAdapter, League\\\\Flysystem\\\\Adapter\\\\Local given\\.$#"
+			count: 2
+			path: src/RoboFile.php
+
+		-
+			message: "#^Parameter \\#2 \\$slack of method Booka\\\\Cli\\\\RoboFile\\:\\:notifySlack\\(\\) expects array, string given\\.$#"
+			count: 3
+			path: src/RoboFile.php
+
+		-
+			message: "#^Property Booka\\\\Cli\\\\RoboFile\\:\\:\\$templates type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/RoboFile.php

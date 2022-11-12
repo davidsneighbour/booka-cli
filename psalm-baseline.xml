@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.x-dev@">
+  <file src="src/RoboFile.php">
+    <MissingThrowsDocblock occurrences="1">
+      <code>Yaml::parseFile(static::$rootdir . '/config/booka.yml')</code>
+    </MissingThrowsDocblock>
+    <PossiblyUnusedMethod occurrences="2">
+      <code>sentryDeployNotification</code>
+      <code>taskNotifySentry</code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue occurrences="1">
+      <code>ResultData|null</code>
+    </PossiblyUnusedReturnValue>
+  </file>
+  <file src="src/Traits/Clean.php">
+    <UndefinedClass occurrences="2">
+      <code>ListPaths</code>
+      <code>Local</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Traits/Database.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>databaseCopy</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Traits/Development.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>devInstallScripts</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Traits/Documentation.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>documentationDown</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Traits/Maintenance.php">
+    <MissingThrowsDocblock occurrences="1">
+      <code>Yaml::parseFile(static::$rootdir . '/config/staging.' . Config::getServername() . '.yml')</code>
+    </MissingThrowsDocblock>
+    <UndefinedClass occurrences="3">
+      <code>Config</code>
+      <code>Config</code>
+      <code>Config</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Traits/QualityInsurance.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>qiCheck</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Traits/Release.php">
+    <UndefinedClass occurrences="2">
+      <code>ListPaths</code>
+      <code>Local</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Traits/Stage.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>migrateDatabase</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Traits/Wordpress.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>wpCompile</code>
+    </PossiblyUnusedMethod>
+  </file>
+</files>
