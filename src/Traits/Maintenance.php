@@ -119,7 +119,6 @@ trait Maintenance
 		$this->_exec('./vendor/bin/phinx migrate');
 		$this->_exec('rm .maintenance');
 
-		//$this->sentryDeployNotification($stage);
 		$message = 'Staging done for ' . $stage['name'] . '[' . $stage['type'] . ']';
 		$this->say($message);
 	}

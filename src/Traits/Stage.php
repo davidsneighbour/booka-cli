@@ -104,7 +104,6 @@ trait Stage
 		$remoteHandler
 			->run();
 
-		//$this->sentryDeployNotification($remote);
 		$message = 'Staging done for ' . $stage['name'] . '[' . $stage['type'] . ']';
 		$this->say($message);
 	}

@@ -61,7 +61,6 @@ trait Release
 		 * 6. build release files
 		 * 7. update version numbers in submodules
 		 * 8. push codebase
-		 * 9. notify sentry.io
 		 */
 
 		// check if we are on branch main
@@ -107,8 +106,6 @@ trait Release
 		// push codebase
 		$this->pushCodebase();
 
-		// notify sentry.io of new version
-		//$this->taskNotifySentry();
 	}
 
 	/**
@@ -360,20 +357,4 @@ trait Release
 			->run();
 	}
 
-
-	//    private function taskNotifySentry(): void
-	//    { // NOSONAR
-	//        if (file_exists(static::$rootdir . '/.sentryclirc')) {// NOSONAR
-	//            $this->taskExecStack()
-	//                ->stopOnFail()
-	//                ->exec(
-	//                    'VERSION=`cat .version` &&
-	//                    ./node_modules/.bin/sentry-cli releases new $VERSION &&
-	//                    ./node_modules/.bin/sentry-cli releases set-commits --auto $VERSION'
-	//                )
-	//                ->run();// NOSONAR
-	//            return;// NOSONAR
-	//        }// NOSONAR
-	//        $this->io->note('Run "./booka setup:sentry" to add relases to Sentry.');// NOSONAR
-	//    }// NOSONAR
 }
