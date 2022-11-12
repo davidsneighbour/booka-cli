@@ -21,7 +21,7 @@
     "@davidsneighbour/config": "^1.0.42"
   },
   "homepage": "https://github.com/davidsneighbour/booka-cli#readme",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "repository": "davidsneighbour/booka-cli",
   "scripts": {

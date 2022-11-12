@@ -47,11 +47,12 @@
     "autoload": "composer dump-autoload --optimize --classmap-authoritative --apcu",
     "phan": "PHAN_DISABLE_XDEBUG_WARN=1 && phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S",
     "phan-baseline": "phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S --save-baseline .phan/baseline.php",
-    "phan-html": "phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S -m=html -o=phan.html",
-    "phpstan": "phpstan analyse -c phpstan.neon src -l max --ansi",
+    "phan-full": "PHAN_DISABLE_XDEBUG_WARN=1 && phan -k .phan/config.php -C --color-scheme=vim --progress-bar -b -x -t -z -S",
+    "phpstan": "phpstan analyse -c phpstan.neon src --allow-empty-baseline -l max --ansi",
     "phpstan-baseline": "phpstan analyse -l 8 -c phpstan.neon --generate-baseline -- src",
     "psalm": "psalm.phar --show-info=true",
-    "psalm-baseline": "psalm.phar --set-baseline=psalm-baseline.xml"
+    "psalm-baseline": "psalm.phar --set-baseline=psalm-baseline.xml",
+    "psalm-full": "psalm.phar --ignore-baseline --show-info=true"
   },
   "type": "library",
   "version": "2.0.5"

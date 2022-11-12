@@ -187,41 +187,6 @@ class RoboFile extends Tasks
     }
 
     /**
-     * @param array  $payload
-     * @param string $message
-     * @param array  $slack = [
-     *                      'channel' => 'channelcode',
-     *                      'hook'    => 'hook',
-     *                      ]
-     *
-     */
-    protected function notifySlack(string $message, array $slack, array $payload = []): void
-    {
-        try {
-            $aPayload = json_encode(
-                [
-                    'username' => $payload['username'] ?? 'BooKa',
-                    'icon_emoji' => $payload['icon_emoji'] ?? ':male-construction-worker:',
-                    'channel' => $slack['channel'],
-                    'text' => $message,
-                ]
-            );
-        } catch (JsonException $eException) {
-            $aPayload = '';
-        }
-
-        $aPayloadPrepared = [
-            "payload" => $aPayload,
-        ];
-
-        try {
-            $curl = new Curl();
-            $curl->post($slack['hook'], $aPayloadPrepared);
-        } catch (RuntimeException $eException) {
-        }
-    }
-
-    /**
      * @param array  $extra
      * @param string $message
      *

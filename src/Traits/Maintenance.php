@@ -80,7 +80,7 @@ trait Maintenance
 		}
 
 		$message = 'Staging starting for ' . $stage['slug'] . '[' . $stage['type'] . ']';
-		$this->notifySlack($message, $stage['slack']);
+		$this->say($message);
 
 		$this->io()->section('Upgrade to latest tag version');
 		$this->say('cleanup');
@@ -99,7 +99,6 @@ trait Maintenance
 
 		if ($stage['type'] === 'live') {
 			$message = 'Committing remote file directory';
-			$this->notifySlack($message, $stage['slack']);
 			$this->say($message);
 			$this->_exec('cd public/files/' . $stage['slug']);
 			$this->_exec('git add -A');
@@ -122,6 +121,6 @@ trait Maintenance
 
 		//$this->sentryDeployNotification($stage);
 		$message = 'Staging done for ' . $stage['name'] . '[' . $stage['type'] . ']';
-		$this->notifySlack($message, $stage['slack']);
+		$this->say($message);
 	}
 }

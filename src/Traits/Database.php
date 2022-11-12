@@ -245,7 +245,7 @@ trait Database
 	 * @param string $command
 	 * @param string $note
 	 */
-	private function executeCommand(array $remote, string $command, string $note)
+	private function executeCommand(array $remote, string $command, string $note): void
 	{
 		/** @noinspection PhpDeprecationInspection */
 		$this->io()->note($note);

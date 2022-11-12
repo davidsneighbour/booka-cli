@@ -3,11 +3,13 @@
         "apidir",
         "autoloader",
         "booka",
+        "Codeception",
         "davidsneighbour",
         "filesource",
         "getbooka",
         "Kollitsch",
         "Neighbour",
+        "Phan",
         "rootdir"
     ]
 }

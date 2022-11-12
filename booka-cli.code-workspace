@@ -1,8 +1,10 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {}
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "markdown.extension.toc.levels": "2..6"
+    }
 }

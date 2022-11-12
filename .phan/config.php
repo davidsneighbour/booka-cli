@@ -10,16 +10,15 @@
  * Moral rights are preserved. Proprietary and confidential software.
  * Written by Patrick Kollitsch <patrick@davids-neighbour.com>
  *
- * PHP Version 7.4
+ * PHP Version 8.1
  *
  * @author     Patrick Kollitsch <patrick@davids-neighbour.com>
  * @copyright  All rights reserved. 2007-2018 - David's Neighbour Part., Ltd.
- * @license    license.txt
+ * @license    LICENSE.md
  * @package    codequality
  * @since      11.7.123
  * @version    11.9.65
-
-* @filesource
+ * @filesource
  */
 
 declare(strict_types=1);

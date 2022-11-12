@@ -78,5 +78,6 @@ otherwise Psalm will throw an error.
         <DeprecatedMethod errorLevel="suppress"/>
         <PossiblyNullArrayAccess errorLevel="suppress"/>
         <PossiblyNullArgument errorLevel="suppress"/>
+        <PossiblyUnusedMethod errorLevel="suppress" />
     </issueHandlers>
 </psalm>

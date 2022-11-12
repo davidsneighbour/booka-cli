@@ -81,7 +81,7 @@ trait Development
 			->run();
 	}
 
-	public function devInstallScripts()
+	public function devInstallScripts(): void
 	{
 		$tailScript = <<< 'TAILSCRIPT'
 

@@ -53,7 +53,7 @@ trait Stage
 		 */
 		$remote = static::$setup['stages'][$stage['name']][$stage['type']];
 		$message = 'Staging starting for ' . $stage['name'] . '[' . $stage['type'] . ']';
-		$this->notifySlack($message, $remote['slack']);
+		$this->say($message);
 		$this->io()->title('Staging now');
 		// run remote update
 		$remoteHandler = $this->taskSshExec(
@@ -79,7 +79,7 @@ trait Stage
 			->exec('git submodule update');
 		if ($stage['type'] === 'live') {
 			$message = 'Committing remote file directory';
-			$this->notifySlack($message, $remote['slack']);
+			$this->say($message);
 			$remoteHandler->exec('cd public/files/' . $remote['slug'])
 				->exec('git add -A')
 				->exec('git diff-index --quiet HEAD || git commit -m "file updates of ' . date('Y-m-d') . '"')
@@ -106,7 +106,7 @@ trait Stage
 
 		//$this->sentryDeployNotification($remote);
 		$message = 'Staging done for ' . $stage['name'] . '[' . $stage['type'] . ']';
-		$this->notifySlack($message, $remote['slack']);
+		$this->say($message);
 	}
 
 	/**
@@ -126,7 +126,7 @@ trait Stage
 			'We stage to ' . $live . ' stage of ' . $name . '.'
 		);
 		$confirmation = $this->confirm('Confirm setup');
-		if ((bool)$confirmation === true) {
+		if ((bool)$confirmation) {
 			return [
 				'type' => $live,
 				'name' => $name,
@@ -146,7 +146,7 @@ trait Stage
 		 * @psalm-suppress PossiblyNullArrayAccess
 		 */
 		$installations = array_keys(static::$setup['stages']);
-		$installations = array_combine(range(1, count($installations)), array_values($installations));
+		$installations = array_combine(range(1, count($installations)), $installations);
 		$name = $this->io()->choice(
 			'Which installation?',
 			$installations,
@@ -168,7 +168,7 @@ trait Stage
 		 * @psalm-suppress PossiblyNullArrayAccess
 		 */
 		$types = array_keys(static::$setup['stages'][$name]);
-		$types = array_combine(range(1, count($types)), array_values($types));
+		$types = array_combine(range(1, count($types)), $types);
 
 		$type = $this->io()->choice(
 			'Which installation type?',
@@ -178,7 +178,7 @@ trait Stage
 		return $type;
 	}
 
-	public function migrateDatabase()
+	public function migrateDatabase() :void
 	{
 		// ask for stage
 		$stage = $this->requestLocations();
