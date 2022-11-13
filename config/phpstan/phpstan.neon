@@ -1,5 +1,5 @@
 includes:
-    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - ../../vendor/phpstan/phpstan/conf/bleedingEdge.neon
     - phpstan-baseline.neon
 parameters:
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
@@ -20,7 +20,6 @@ parameters:
         - '#Method Booka\\Core\\Database\:\:getInstance\(\) should return ADODB_mysqli but returns ADODB_mysqli\|the#'
         - '#Access to property \$cacheSecs on an unknown class the#'
         - '#Parameter \#3 \$callback of method Smarty\_Internal\_TemplateBase::registerPlugin\(\) expects callback#'
-        - '#PHPDoc tag @var contains unknown class callback#'
     reportUnmatchedIgnoredErrors: false
     inferPrivatePropertyTypeFromConstructor: true
     earlyTerminatingMethodCalls:

@@ -37,9 +37,6 @@ use Robo\Contract\VerbosityThresholdInterface;
 trait Development
 {
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
 	public function devPrepare(): void
 	{
 		// remove logfiles

@@ -56,9 +56,6 @@ trait Testing
 			->run();
 	}
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
 	public function testApi(): void
 	{
 		$this

@@ -39,8 +39,6 @@ trait Stage
 
 	/**
 	 * Update stages to most current versions
-	 *
-	 * @psalm-suppress PossiblyUnusedMethod
 	 */
 	public function stage(): void
 	{
@@ -48,8 +46,7 @@ trait Stage
 		$stage = $this->requestLocations();
 
 		/**
-		 * @var array<array-key, mixed> $remote remote setup configuration
-		 * @psalm-suppress PossiblyNullArrayAccess
+		 * @param array<array-key, mixed> $remote remote setup configuration
 		 */
 		$remote = static::$setup['stages'][$stage['name']][$stage['type']];
 		$message = 'Staging starting for ' . $stage['name'] . '[' . $stage['type'] . ']';
@@ -140,10 +137,7 @@ trait Stage
 	 */
 	private function askRemoteInstallation(): string
 	{
-		/**
-		 * @psalm-suppress PossiblyNullArgument
-		 * @psalm-suppress PossiblyNullArrayAccess
-		 */
+
 		$installations = array_keys(static::$setup['stages']);
 		$installations = array_combine(range(1, count($installations)), $installations);
 		$name = $this->io()->choice(
@@ -162,10 +156,7 @@ trait Stage
 	 */
 	private function askRemoteInstallType(string $name): string
 	{
-		/**
-		 * @psalm-suppress PossiblyNullArgument
-		 * @psalm-suppress PossiblyNullArrayAccess
-		 */
+
 		$types = array_keys(static::$setup['stages'][$name]);
 		$types = array_combine(range(1, count($types)), $types);
 
@@ -185,8 +176,7 @@ trait Stage
 			'Starting database migration.'
 		);
 		/**
-		 * @var array<array-key, string> $remote
-		 * @psalm-suppress PossiblyNullArrayAccess
+		 * @param array<array-key, string> $remote
 		 */
 		$remote = static::$setup['stages'][$stage['name']][$stage['type']];
 		$remoteHandler = $this->taskSshExec(

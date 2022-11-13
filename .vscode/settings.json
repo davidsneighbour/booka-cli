@@ -6,6 +6,7 @@
         "Codeception",
         "davidsneighbour",
         "filesource",
+        "Flysystem",
         "getbooka",
         "Kollitsch",
         "Neighbour",

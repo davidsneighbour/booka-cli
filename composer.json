@@ -45,14 +45,14 @@
   },
   "scripts": {
     "autoload": "composer dump-autoload --optimize --classmap-authoritative --apcu",
-    "phan": "PHAN_DISABLE_XDEBUG_WARN=1 && phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S",
-    "phan-baseline": "phan -k .phan/config.php --load-baseline .phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S --save-baseline .phan/baseline.php",
-    "phan-full": "PHAN_DISABLE_XDEBUG_WARN=1 && phan -k .phan/config.php -C --color-scheme=vim --progress-bar -b -x -t -z -S",
-    "phpstan": "phpstan analyse -c phpstan.neon src -l max --ansi",
-    "phpstan-baseline": "phpstan analyse -l 8 -c phpstan.neon --generate-baseline -- src",
-    "psalm": "psalm.phar --show-info=true",
-    "psalm-baseline": "psalm.phar --set-baseline=psalm-baseline.xml",
-    "psalm-full": "psalm.phar --ignore-baseline --show-info=true"
+    "phan": "PHAN_DISABLE_XDEBUG_WARN=1 && phan -k config/phan/config.php --load-baseline config/phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S",
+    "phan-baseline": "phan -k config/phan/config.php --load-baseline config/phan/baseline.php -C --color-scheme=vim --progress-bar -b -x -t -z -S --save-baseline config/phan/baseline.php",
+    "phan-full": "PHAN_DISABLE_XDEBUG_WARN=1 && phan -k config/phan/config.php -C --color-scheme=vim --progress-bar -b -x -t -z -S",
+    "phpstan": "phpstan analyse -c config/phpstan/phpstan.neon src -l max --ansi",
+    "phpstan-baseline": "phpstan analyse -l 8 -c config/phpstan/phpstan.neon --generate-baseline=config/phpstan/phpstan-baseline.neon -- src",
+    "psalm": "psalm.phar --config=config/psalm/psalm.xml --use-baseline=config/psalm/psalm-baseline.xml --show-info=true",
+    "psalm-baseline": "psalm.phar --config=config/psalm/psalm.xml --set-baseline=config/psalm/psalm-baseline.xml",
+    "psalm-full": "psalm.phar --config=config/psalm/psalm.xml --ignore-baseline --show-info=true"
   },
   "type": "library",
   "version": "2.0.5"

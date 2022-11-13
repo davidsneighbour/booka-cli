@@ -35,9 +35,7 @@ namespace Booka\Cli\Traits;
 trait QualityInsurance
 {
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
+
 	public function qiBaselines(): void
 	{
 		$this->qiPhanBaseline();
@@ -45,9 +43,7 @@ trait QualityInsurance
 		$this->qiPhpstanBaseline();
 	}
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
+
 	public function qiPhanBaseline(): void
 	{
 		$command = $this->getCommonPhanSetup();
@@ -87,9 +83,7 @@ trait QualityInsurance
 		return $command;
 	}
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
+
 	public function qiPsalmBaseline(): void
 	{
 		$command = './vendor/bin/psalm.phar --set-baseline=psalm-baseline.xml';
@@ -98,43 +92,32 @@ trait QualityInsurance
 		$this->_exec($command);
 	}
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
+
 	public function qiPhpstanBaseline(): void
 	{
 		$command = './vendor/bin/phpstan analyse -l 8 -c phpstan.neon --generate-baseline';
 		$this->_exec($command);
 	}
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
+
 	public function qiPhan(): void
 	{
 		$command = $this->getCommonPhanSetup(false);
 		$this->_exec($command);
 	}
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
+
 	public function qiPhpstan(): void
 	{
 		$this->_exec('./bin/phpstan analyse -c phpstan.neon src -l max --ansi');
 	}
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
+
 	public function qiPsalm(): void
 	{
 		$this->_exec('./vendor/bin/psalm.phar');
 	}
 
-	/**
-	 * @psalm-suppress PossiblyUnusedMethod
-	 */
 	public function qiPhpdoccheck(): void
 	{
 		$this->_exec('./vendor/bin/php-doc-check src');
