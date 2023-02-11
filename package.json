@@ -18,7 +18,7 @@
     }
   ],
   "devDependencies": {
-    "@davidsneighbour/config": "^1.0.42"
+    "@davidsneighbour/config": "^5.0.1"
   },
   "homepage": "https://github.com/davidsneighbour/booka-cli#readme",
   "license": "MIT",
